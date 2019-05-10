@@ -8,16 +8,15 @@ class AbstractMelonOrder():
         self.tax = tax
 
 
-    def get_total(self,species):
+    def get_total(self,species, order_type):
         """Calculate price, including tax."""
-        if species == "Christmas Melons"
-            base_price = 7.5
-        else:
-            base_price = 5
-        if order_type == "international" and qty <= 10:
-            total = (1+self.tax) * self.qty * base_price + 3
-        else:
-            total = (1 + self.tax) * self.qty * base_price
+        base_price = 5
+        if self.species == "Christmas Melons":
+            base_price = base_price * 1.5
+        total = (1 + self.tax) * self.qty * base_price
+        if self.order_type == "international" and self.qty < 10:
+            total += 3
+
 
         return total
 
