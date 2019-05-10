@@ -24,8 +24,6 @@ class AbstractMelonOrder():
         """Record the fact than an order has been shipped."""
         self.shipped = True
 
-
-
 class DomesticMelonOrder(AbstractMelonOrder):
     """A melon order within the USA."""
 
