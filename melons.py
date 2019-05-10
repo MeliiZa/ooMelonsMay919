@@ -35,8 +35,6 @@ class DomesticMelonOrder(AbstractMelonOrder):
         """Initialize melon order attributes."""
 
 
-
-
 class InternationalMelonOrder(AbstractMelonOrder):
     """An international (non-US) melon order."""
 
