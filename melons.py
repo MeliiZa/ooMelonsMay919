@@ -31,7 +31,6 @@ class DomesticMelonOrder(AbstractMelonOrder):
         super().__init__(species, qty,"domestic",0.08)
         """Initialize melon order attributes."""
 
-
 class InternationalMelonOrder(AbstractMelonOrder):
     """An international (non-US) melon order."""
 
