@@ -10,7 +10,6 @@ class AbstractMelonOrder():
         if qty > 100:
             raise TooManyMelonsError
 
-
         self.qty = qty
         self.shipped = False
         self.order_type = order_type
