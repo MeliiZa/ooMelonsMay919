@@ -2,9 +2,15 @@
 import random
 import datetime
 
+
 class AbstractMelonOrder():
     def __init__ (self,species,qty,order_type,tax):
         self.species = species
+
+        if qty > 100:
+            raise TooManyMelonsError
+
+
         self.qty = qty
         self.shipped = False
         self.order_type = order_type
@@ -14,8 +20,7 @@ class AbstractMelonOrder():
         base_price = random.randrange(5, 10)
         now = datetime.datetime.now()
 
-        if now.hour >= 8 and now.hour <= 11 and now.weekday()
-<5:
+        if now.hour >= 8 and now.hour <= 11 and now.weekday() < 5:
             base_price += 4
         return base_price
 
@@ -70,3 +75,11 @@ class GovernmentMelonOrder(AbstractMelonOrder):
 
     def mark_inspection(self, passed):
         self.passed_inspection = passed
+
+class TooManyMelonsError(ValueError):
+    """Error to raise when too many melons are ordered."""
+
+    def __init__(self):
+        """Initialize TooManyMelonsError using init method from ValueError."""
+
+        super().__init__("No more than 100 melons!")
