@@ -45,3 +45,19 @@ class InternationalMelonOrder(AbstractMelonOrder):
         """Return the country code."""
 
         return self.country_code
+
+class GovernmentMelonOrder(AbstractMelonOrder):
+    """ special orders for goverment"""
+
+    def __init__(self,species, qty):
+        super().__init__(species,qty, "government",0.0)
+        self.passed_inspection = False
+
+    #can't do it this way bc it's not going to feed into the parent intialization method
+    # tax = 0.0
+    # order_type = "government"
+    # passed_inspection = False
+
+
+    def mark_inspection(self, passed):
+        self.passed_inspection = passed
