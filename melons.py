@@ -1,5 +1,7 @@
 """Classes for melon orders."""
 import random
+import datetime
+
 class AbstractMelonOrder():
     def __init__ (self,species,qty,order_type,tax):
         self.species = species
@@ -10,6 +12,11 @@ class AbstractMelonOrder():
 
     def get_base_price(self):
         base_price = random.randrange(5, 10)
+        now = datetime.datetime.now()
+
+        if now.hour >= 8 and now.hour <= 11 and now.weekday()
+<5:
+            base_price += 4
         return base_price
 
 
