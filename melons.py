@@ -1,4 +1,5 @@
 """Classes for melon orders."""
+import random
 class AbstractMelonOrder():
     def __init__ (self,species,qty,order_type,tax):
         self.species = species
@@ -7,15 +8,21 @@ class AbstractMelonOrder():
         self.order_type = order_type
         self.tax = tax
 
+    def get_base_price(self):
+        base_price = random.randrange(5, 10)
+        return base_price
+
 
     def get_total(self,species, order_type):
         """Calculate price, including tax."""
-        base_price = 5
+        base_price = self.get_base_price()
         if self.species == "Christmas Melons":
             base_price = base_price * 1.5
         total = (1 + self.tax) * self.qty * base_price
         if self.order_type == "international" and self.qty < 10:
             total += 3
+        if "Splurge pricing":
+        
 
 
         return total
@@ -23,6 +30,7 @@ class AbstractMelonOrder():
     def mark_shipped(self):
         """Record the fact than an order has been shipped."""
         self.shipped = True
+
 
 class DomesticMelonOrder(AbstractMelonOrder):
     """A melon order within the USA."""
