@@ -24,7 +24,6 @@ class AbstractMelonOrder():
             base_price += 4
         return base_price
 
-
     def get_total(self,species, order_type):
         """Calculate price, including tax."""
         base_price = self.get_base_price()
