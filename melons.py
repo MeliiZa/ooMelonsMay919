@@ -33,7 +33,7 @@ class AbstractMelonOrder():
         if self.order_type == "international" and self.qty < 10:
             total += 3
         if "Splurge pricing":
-        return total
+            return total
 
     def mark_shipped(self):
         """Record the fact than an order has been shipped."""
